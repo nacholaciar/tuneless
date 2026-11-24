@@ -1,0 +1,45 @@
+name: Bug report
+description: Apple Music still opens, or Tuneless misbehaves
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve Tuneless. Do not report security vulnerabilities here.
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the problem and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: For example "connect AirPods Pro while Brave is closed".
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Tuneless and macOS versions
+      description: Output of `tuneless --version` and `sw_vers -productVersion`.
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: Install method
+      options:
+        - Homebrew (brew services)
+        - make install
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: "Output of: /usr/bin/log show --last 10m --predicate 'subsystem == \"io.github.nacholaciar.tuneless\"' --style compact"
+      render: text

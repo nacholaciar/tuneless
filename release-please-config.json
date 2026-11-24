@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "release-type": "simple",
+  "bump-minor-pre-major": true,
+  "include-v-in-tag": true,
+  "packages": {
+    ".": {
+      "package-name": "tuneless",
+      "extra-files": [
+        { "type": "generic", "path": "Sources/TunelessCore/Tuneless.swift" }
+      ]
+    }
+  }
+}
