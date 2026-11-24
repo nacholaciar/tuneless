@@ -6,6 +6,7 @@
   "packages": {
     ".": {
       "package-name": "tuneless",
+      "initial-version": "0.1.0",
       "extra-files": [
         { "type": "generic", "path": "Sources/TunelessCore/Tuneless.swift" }
       ]
