@@ -15,7 +15,7 @@ A macOS background service that quits Apple Music the moment it launches, so it 
 | `Tests/TunelessCoreTests/` | Swift Testing unit tests for `TunelessCore`. |
 | `LaunchAgent/io.github.nacholaciar.tuneless.plist` | LaunchAgent template; `__BIN__` is replaced by `Scripts/install.sh`. |
 | `Scripts/install.sh`, `Scripts/uninstall.sh` | Install to `~/.local/bin` and register or remove the LaunchAgent. |
-| `Packaging/homebrew/tuneless.rb` | Copy of the formula published in `nacholaciar/homebrew-tap`. |
+| `Scripts/bump-homebrew-tap.sh` | Points `Formula/tuneless.rb` in `nacholaciar/homebrew-tap` at a release tag. The formula itself lives only in the tap. |
 | `.github/assets/` | Icon (`tuneless-icon.svg` is the source) and social preview; `src/social-preview.html` renders the preview. |
 
 ## Commands
@@ -45,11 +45,7 @@ Requires macOS 14+ and Swift 6. Run `swift test` before finishing any change. `m
 
 - Commits follow [Conventional Commits](https://www.conventionalcommits.org/): `feat:` minor, `fix:` patch, `docs:`/`chore:`/`refactor:`/`test:` no release.
 - Release Please opens the release PR and tags `vX.Y.Z`. Do not edit `CHANGELOG.md`, `.release-please-manifest.json` or the version string by hand; the `// x-release-please-version` comment in `Tuneless.swift` is updated automatically.
-- After a release, update `url` and `sha256` in both `Packaging/homebrew/tuneless.rb` and the tap's `Formula/tuneless.rb`:
-
-```bash
-curl -sL https://github.com/nacholaciar/tuneless/archive/refs/tags/vX.Y.Z.tar.gz | shasum -a 256
-```
+- When a release is created, the `homebrew` job in `.github/workflows/release-please.yml` runs `Scripts/bump-homebrew-tap.sh` to update `url` and `sha256` in the tap. It needs the `HOMEBREW_TAP_TOKEN` secret (fine-grained token, Contents: write on `nacholaciar/homebrew-tap`). To preview by hand: `DRY_RUN=1 Scripts/bump-homebrew-tap.sh vX.Y.Z`.
 
 ## Gotchas
 
