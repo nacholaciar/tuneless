@@ -5,7 +5,7 @@ class Tuneless < Formula
   desc "Stop Apple Music from opening when headphones or AirPods connect"
   homepage "https://github.com/nacholaciar/tuneless"
   url "https://github.com/nacholaciar/tuneless/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "REPLACE_WITH_RELEASE_TARBALL_SHA256"
+  sha256 "08ca0b8b3c3a129bcfbb887e3f6c3920e52e801b0b993d4f8f301004625b6171"
   license "MIT"
   head "https://github.com/nacholaciar/tuneless.git", branch: "main"
 
